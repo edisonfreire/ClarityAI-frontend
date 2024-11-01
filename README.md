@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Name: Interactive AI Chat Application
+
+This project is an interactive AI chat application with a **frontend** built using **Next.js** and a **backend** powered by **Flask** and **Google Generative AI**. This guide will help you set up the development environment for both repositories.
 
 ## Getting Started
 
