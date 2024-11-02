@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
+import { BrainCircuitIcon, Menu, X } from 'lucide-react'
 import { LANDING_PAGE_LINKS } from '@/constants';
+import { SignedIn, SignedOut } from '@clerk/nextjs';
 
 function Navbar() {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState<boolean>(false);
@@ -18,7 +18,7 @@ function Navbar() {
         <div className='flex justify-between items-center'>
           <div className='flex items-center flex-shrink-0'>
             {/* From public folder */}
-            <Image src='/logo.svg' alt='Logo' width={10} height={10} className='mr-2' />
+            <BrainCircuitIcon className='mr-2' />
             <span className='text-xl tracking-tight'>ClarityAI</span>
           </div>
           <ul className='hidden lg:flex ml-14 space-x-12'>
@@ -29,8 +29,13 @@ function Navbar() {
             ))}
           </ul>
           <div className='hidden lg:flex justify-center space-x-12 items-center'>
-            <Link href='/' className='py-2 px-3 border rounded'>Login</Link>
-            <Link href='/signup' className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'>Sign Up</Link>
+            <SignedIn>
+              <Link href='/dashboard' className='py-2 px-3 border rounded'>Dashboard</Link>
+            </SignedIn>
+            <SignedOut>
+              <Link href='/sign-in' className='py-2 px-3 border rounded'>Login</Link>
+              <Link href='/sign-up' className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'>Sign Up</Link>
+            </SignedOut>
           </div>
           <div className="lg:hidden md:flex flex-col justify-end">
             <button onClick={toggleNavbar}>
@@ -48,8 +53,13 @@ function Navbar() {
               ))}
             </ul>
             <div className="flex space-x-6">
-              <Link href='#' className='py-2 px-3 border rounded-md'>Sign In</Link>
-              <Link href='#' className='py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800'>Sign Up</Link>
+              <SignedIn>
+                <Link href='/dashboard' className='py-2 px-3 border rounded'>Dashboard</Link>
+              </SignedIn>
+              <SignedOut>
+                <Link href='/sign-in' className='py-2 px-3 border rounded'>Login</Link>
+                <Link href='/sign-up' className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'>Sign Up</Link>
+              </SignedOut>
             </div>
           </div>
         )}

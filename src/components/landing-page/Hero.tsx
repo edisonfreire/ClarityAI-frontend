@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut } from "@clerk/nextjs"
 import Link from "next/link"
 
 function Hero() {
@@ -13,12 +14,22 @@ function Hero() {
         Talk to an AI-powered chatbot that helps you journal, reflect, and track your emotional well-being.
       </p>
       <div className="flex justify-center my-10">
-        <Link
-          href="#"
-          className="bg-gradient-to-r from-orange-500 to-orange-800 py-3 px-4 mx-3 rounded-md"
-        >
-          Get Started
-        </Link>
+        <SignedIn>
+          <Link
+            href="/dashboard"
+            className="bg-gradient-to-r from-orange-500 to-orange-800 py-3 px-4 mx-3 rounded-md"
+          >
+            Dashboard
+          </Link>
+        </SignedIn>
+        <SignedOut>
+          <Link
+            href="/sign-up"
+            className="bg-gradient-to-r from-orange-500 to-orange-800 py-3 px-4 mx-3 rounded-md"
+          >
+            Get Started
+          </Link>
+        </SignedOut>
       </div>
       <div className="flex mt-10 justify-center">
         <video
@@ -40,7 +51,7 @@ function Hero() {
           Your browser does not support the video tag.
         </video>
       </div>
-    </div>
+    </div >
   )
 }
 

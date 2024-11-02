@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-// ***** Dashboard *****
+// ***** Dashboard ***** (maybe there is a better name for this)
 // Basic functionality of dashboard
 // Profile
 // Settings
