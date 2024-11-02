@@ -21,7 +21,6 @@ interface Message {
   text: string;
 }
 
-
 function NewChat() {
   // state to store messages and user input
   const [messages, setMessages] = useState<Message[]>([])
