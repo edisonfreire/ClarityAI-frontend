@@ -1,4 +1,6 @@
-import Link from "next/link";
+import Hero from "@/components/landing-page/Hero";
+import Navbar from "@/components/landing-page/Navbar";
+import FeatureSection from "@/components/landing-page/FeatureSection";
 
 // ***** Landing page *****
 // Basic funtionality on landing page
@@ -10,12 +12,22 @@ import Link from "next/link";
 // ***** Forward thinking *****
 // With auth we need private and public routes, dashboard will be a public route meaning you can view with page without authenticated for new users.
 
+// ***** Future *****
+// Maybe need an About Us page, talking about the team
+// Testimonials
+// Footer
+
+// Inspo
+// https://www.youtube.com/watch?v=EwzWg-Joxq0
+
 export default function Home() {
   return (
     <div>
-      <h1 className="text-2xl">Clarity AI</h1>
-      <h3 className="text-xl">Temporary until dashboard is set up</h3>
-      <Link href="/dashboard" className="text-blue-500">Click to go to dashboard</Link>
+      <Navbar />
+      <div className="max-w-7xl mx-auto pt-20 px-6">
+        <Hero />
+        <FeatureSection />
+      </div>
     </div>
   );
 }
